@@ -1,0 +1,1 @@
+python eval_with_scale_cum.py /net/isi-scratch/cynthia/CW007_SANDOR_Pipeline/data/others/ensg_63symb_redundancy /net/isi-scratch/cynthia/CW007_SANDOR_Pipeline/network/all/semantic_sim_gene_all_hpo_mgi_sort.txt /net/isi-scratch/cynthia/CW007_SANDOR_Pipeline/network/all/wl_mgi_netold /net/isi-scratch/cynthia/CW007_SANDOR_Pipeline/network/all/wl_mgi_netold.benchcum 2000 0
