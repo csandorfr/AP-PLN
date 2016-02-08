@@ -1,0 +1,3 @@
+python pipeline_compute_phen_sem_sim.py /net/isi-scratch/cynthia/CW007_SANDOR_Pipeline/network/t2d/list_t2d_mgi_term.txt /net/isi-scratch/cynthia/CW007_SANDOR_Pipeline/data/mgi /net/isi-scratch/cynthia/CW007_SANDOR_Pipeline/network/t2d 0 t2d_mgi
+
+python pipeline_compute_phen_sem_sim.py /net/isi-scratch/cynthia/CW007_SANDOR_Pipeline/network/t2d/list_t2d_mgi_term.txt /net/isi-scratch/cynthia/CW007_SANDOR_Pipeline/data/mgi /net/isi-scratch/cynthia/CW007_SANDOR_Pipeline/network/t2d 0 t2d_mgi
