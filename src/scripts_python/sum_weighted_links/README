@@ -1,1 +1,0 @@
-python sum_weighted_links.py /net/isi-scratch/cynthia/CW007_SANDOR_Pipeline/network/all/list_file_rescore /net/isi-scratch/cynthia/CW007_SANDOR_Pipeline/network/all /net/isi-scratch/cynthia/CW007_SANDOR_Pipeline/network/all/integration_test 5
