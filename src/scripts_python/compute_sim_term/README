@@ -1,0 +1,1 @@
+python compute_sim_term.py /net/isi-scratch/cynthia/CW007_SANDOR_Pipeline/data/hpo/dcas/dcas /net/isi-scratch/cynthia/CW007_SANDOR_Pipeline/network/t2d/ic_hpo_t2d.txt  /net/isi-scratch/cynthia/CW007_SANDOR_Pipeline/network/t2d/semantic_sim_term_t2d_hpo.txt

@@ -1,0 +1,1 @@
+python compute_ic.py /net/isi-scratch/cynthia/CW007_SANDOR_Pipeline/data/mgi/mgi_own_format.obo /net/isi-scratch/cynthia/CW007_SANDOR_Pipeline/network/t2d/genes_ens_to_phenotype_no_red_t2d_mgi.txt /net/isi-scratch/cynthia/CW007_SANDOR_Pipeline/network/t2d/ic_mgi_t2d.txt
