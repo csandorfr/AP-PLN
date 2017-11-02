@@ -14,4 +14,22 @@ def get_list_file(dir):
 		else:
 			print "file unknown",file
 	return f_dcas,f_term,f_redund,f_annot
+
+def test_file_annot(file):
+	f=open(file,'r')
+	pheno_mem=''
+	n=0
+	for line in f:
+		term=line.rstrip()
+		if re.search('MP',term):
+			pheno='mgi'
+		elif re.search('HP',term):
+			pheno='hpo'
+		else:
+			print "Error: %s is not HPO or MGI annotations" % pheno
+		if pheno_mem!=pheno and n > 0:
+			print "Error: HPO and MGI annotations in the same file"
+		n+=1
+		pheno_mem=pheno
+	return pheno_mem	
 	

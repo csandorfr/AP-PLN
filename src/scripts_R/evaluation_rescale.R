@@ -20,7 +20,7 @@ estimation_intercept<-function(x,y,ref_val) {
 }
 
 # package
-library('earth')
+suppressMessages(library('earth'))
 
 options(echo=TRUE)
 args <- commandArgs(trailingOnly = TRUE)

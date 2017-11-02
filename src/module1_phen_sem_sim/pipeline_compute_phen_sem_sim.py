@@ -3,22 +3,33 @@ import data
 import logging
 import subprocess
 
+#
 # Parameters
+#
 f_annot_phen=sys.argv[1]
-dir_data=sys.argv[2]
-dir_work=sys.argv[3]
-exclude=sys.argv[4]
-out_suffixe=sys.argv[5]
+dir_work=sys.argv[2]
+out_suffixe=sys.argv[3]
 
 
-# define log
+#
+# Define log
+#
 logger = logging.getLogger('module1-build phenotypic benchmark')
 logger.setLevel(logging.DEBUG)
-ch = logging.StreamHandler()
+ch = logging.FileHandler('%s/m1_%s.log' % (dir_work,out_suffixe))
 ch.setLevel(logging.INFO)
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 ch.setFormatter(formatter)
 logger.addHandler(ch)
+
+logger.info("Parameters:%s" % sys.argv )
+
+#
+# Test the phenotype annotation
+#
+pheno=data.test_file_annot(f_annot_phen)
+dir_data=os.environ['AP_PLN_HOME']+"/data/%s" % pheno
+
 #
 # Step1: Determine data file used to compute similarity score 
 #
@@ -28,21 +39,18 @@ logger.debug("disjonct common ancestor file: %s" % f_dcas)
 logger.debug("phenotype information (relation with others terms) file: %s " % f_term)
 logger.debug("phenotype redundant file: %s" % f_redund)
 logger.debug("phenotype annotations of genes file: %s" % f_annot)
-
 #
 # Step2: Keep only relevant annotation"
 # 
 f_annot_subset=dir_work+'/'+"genes_ens_to_phenotype_no_red_"+out_suffixe+".txt"
 logger.info("2) Keep only relevant annotation...")
-if exclude=='0' or exclude=='1':
-	list_arg="python $AP_PLN_HOME/src/scripts_python/reannotation_with_subset/reannotation_with_subset.py %s %s/%s %s/%s %s/%s %s %s" % (f_annot_phen,dir_data,f_term,dir_data,f_redund,dir_data,f_annot,f_annot_subset,exclude)
-	proc = subprocess.Popen(list_arg, stdout=subprocess.PIPE, shell=True) 
-	(out, err) = proc.communicate()
-	[logger.debug(val) for val in out.split("\n")]
-	if err is not None: logger.error(err)
-else:
-	logger.error("error in parameter exclude %s" % exclude)
-	exit()
+exclude=0
+list_arg="python $AP_PLN_HOME/src/scripts_python/reannotation_with_subset/reannotation_with_subset.py %s %s/%s %s/%s %s/%s %s %s" % (f_annot_phen,dir_data,f_term,dir_data,f_redund,dir_data,f_annot,f_annot_subset,exclude)
+proc = subprocess.Popen(list_arg, stdout=subprocess.PIPE, shell=True) 
+(out, err) = proc.communicate()
+[logger.debug(val) for val in out.split("\n")]
+if err is not None: logger.error(err)
+
 #
 # Step3: Compute information content for each term
 #

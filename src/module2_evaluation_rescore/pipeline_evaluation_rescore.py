@@ -20,11 +20,12 @@ f_ens_red="$AP_PLN_HOME/data/others/ensg_63symb_redundancy"
 # define log
 logger = logging.getLogger('module2-evaluation_rescore')
 logger.setLevel(logging.DEBUG)
-ch = logging.StreamHandler()
+ch = logging.FileHandler('%s/m2_%s.log' % (dir_work,suff_out))
 ch.setLevel(logging.INFO)
 formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 ch.setFormatter(formatter)
 logger.addHandler(ch)
+logger.info("Parameters:%s" % sys.argv)
 
 #
 # Step1: Compute the phenotypic value associated with random genes
