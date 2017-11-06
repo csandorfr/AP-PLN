@@ -1,6 +1,6 @@
-## AP-PLN
+### AP-PLN
 
-### References
+### Reference
 
 An automatic pipeline to design disease specific phenotypic linkage gene networks: AP-PLN
 
