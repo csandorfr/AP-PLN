@@ -1,7 +1,7 @@
 
 ### Reference
 
-AP-PLN: An automatic pipeline to design phenotypic linkage gene networks
+An automatic pipeline to design disease spe-cific phenotypic linkage gene networks: AP-PLN
 
 Cynthia Sandor; Viola Volpato; Caleb Webber
 
