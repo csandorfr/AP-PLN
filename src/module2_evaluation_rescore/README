@@ -1,1 +1,0 @@
-python pipeline_evaluation_rescore.py /net/isi-project/CW016_SANDOR_AP_PLN/example/semantic_sim_gene_mgi_all.scale  /net/isi-project/CW016_SANDOR_AP_PLN/example/list_file_data /net/isi-project/CW016_SANDOR_AP_PLN/example /net/isi-project/CW016_SANDOR_AP_PLN/example 500 0 mgi_all
