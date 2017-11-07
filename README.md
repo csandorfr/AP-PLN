@@ -10,7 +10,7 @@ Cynthia Sandor; Viola Volpato; Caleb Webber
 
 Running Automatic pipeline to build phenotypic linkage network (AP-PLN) requires at least Python (Python version 2.7.6) and R (R version 3.1.2). 
 The following Python package must be installed: numpy (numpy version 1.9.1).
-The following R package must be installed: earth (earth version 4.3.3).
+The following R packages must be installed: earth (> 4.3.3), igraph (1.1.2) and biomaRt (2.30.0). 
 As no compilation is required, the pipeline can be used on any computer, where Python and R are installed and it is therefore available for Windows, Linux, and MAC OS machines. 
 
 ### AP-PLN - Download and installation
