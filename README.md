@@ -17,6 +17,9 @@ As no compilation is required, the pipeline can be used on any computer, where P
 
 Using the buttons at the top of this page, download the ZIP file or the TAR ball, unzip/ extract the download, and save the whole AP-PLN directory (folder) in your favourite directory. The AP-PLN  directory contains directory src with source code of three modules and directories of python and R scripts. 
 You need to move next in the directory AP-PLN (cd AP-PLN). 
+
+From this URL: http://wwwfgu.anat.ox.ac.uk/downloads/compbio_projects/CW016_SANDOR_AP_PLN
+
 You must then download and extract the following tar.gz file in your AP-PLN directory:
 
 * [data.tar.gz](http://wwwfgu.anat.ox.ac.uk/downloads/compbio_projects/CW016_SANDOR_AP_PLN/data.tar.gz)
