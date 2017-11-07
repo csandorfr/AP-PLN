@@ -20,4 +20,4 @@ os.system("python $AP_PLN_HOME/src/module3_integration/pipeline_integration.py %
 # Step3: Comparison of accuracy and gene pairs coverage for different individual dataset and for PLN
 #
 list_file_rescore_final=dir_work+"/list_file_rescore_wl."+out
-os.system("python $AP_PLN_HOME/src/module4_comparison_dataset/pipeline_evaluation.py %s %s %s %s 2000 0 %s" % (f_sem_sim,list_file_rescore_final,dir_work,dir_work,out))
+os.system("python $AP_PLN_HOME/src/additional_tools/comparison_dataset/pipeline_evaluation.py %s %s %s %s 2000 0 %s" % (f_sem_sim,list_file_rescore_final,dir_work,dir_work,out))
