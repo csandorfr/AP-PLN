@@ -4,7 +4,7 @@
 
 An automatic pipeline to design disease specific phenotypic linkage gene networks: AP-PLN
 
-Cynthia Sandor; Viola Volpato; Caleb Webber
+Viola Volpato; ;  Caleb Webber; Cynthia Sandor
 
 ### System Requirements
 
