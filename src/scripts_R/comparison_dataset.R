@@ -1,25 +1,32 @@
-
-
-# package
+#
+# Package
+#
 options(echo=TRUE)
 args <- commandArgs(trailingOnly = TRUE)
 print(args)
 
-# parameters
+#
+# Parameters
+#
 dir_data <-args[1]
 f_dataset<-args[2]
 random_val <- as.numeric(args[3])
 f_graphe<-args[4]
 
-
-# get the list of f_dataset
-list_data<-read.table(f_dataset)
-class(list_data)
+#
+# Get the list of f_dataset
+#
+list_data<-read.table(f_dataset,header=FALSE,sep="\t")
 nb_d<-length(list_data$V1)
-print(nb_d)
+list_data$color_val<-rainbow(n=nb_d)
+list_data$PCH<-rep(21,nb_d)
+list_data$LTY<-rep(1,nb_d)
+even_indexes<-seq(1,nb_d,2)
+list_data$LTY[even_indexes]<-2
 
-
-# get info max x and y each dataset
+#
+# Get info max x and y each dataset
+#
 max_x=0
 max_y=0
 min_x=20000
@@ -43,30 +50,38 @@ for (i in c(1:nb_d)) {
         }
 }
 
-# create png
-png(filename =f_graphe, width = 480, height = 480,pointsize = 12, bg = "white")
+#
+# Make Plot
+#
 
-# make graphe
-par(mar=c(5.1, 4.1, 4.1, 8.1), xpd=TRUE)
-color_val=sample(colours(), nb_d)
-vect_name<-c()
-vect_pch<-c()
+pdf(f_graphe)
+
+par(mar=c(6.1, 4.1, 4.1, 2.1))
 for (i in c(1:nb_d)) {
-	file=paste(dir_data,"/",list_data$V1[i],sep="")
-	b<-unlist(strsplit(as.character(list_data$V1[i]), "_"))
-	vect_name<-c(vect_name,b[1])
-	pch_val <- sample(0:25, 1)
-	vect_pch<-c(vect_pch,pch_val)
-	data<-read.table(file)
-	x<-log(data$V1)
-	y<-data$V2
-	print(file)
-	if (i==1) {
-		plot(x,y,ylim=c(min_y-0.01,max_y+0.01),xlim=c(min_x,max_x),col=color_val[i],pch=pch_val,ylab='Cumulative phenotypic semantic similarity',xlab='Log 10 of the coverage gene pairs')
+        file=paste(dir_data,"/",list_data$V1[i],sep="")
+        data<-read.table(file)
+        x<-log(data$V1)
+        y<-data$V2
+        if (i==1) {
+                 plot(x,y,ylim=c(random_val-0.01,max_y+0.01),xlim=c(min_x,max_x),col=list_data$color_val[i],pch=list_data$PCH[i],ylab='Cumulative phenotypic semantic similarity',xlab='Coverage gene-gene links',type="o",xaxt = 'n',lty=list_data$LTY[i])
+                axis(1, labels = FALSE)
 
-	}
-		points(x,y,col=color_val[i],pch=pch_val)
+        }
+                points(x,y,col=list_data$color_val[i],pch=list_data$PCH[i],type="o",lty=list_data$LTY[i])
 }
+
+# random pairs of genes
 segments(min_x,random_val,max_x,random_val,col='gray',lty=2,lwd=2)
-legend('topright',  inset=c(-0.2,0), vect_name, col=color_val,pch=vect_pch)
+
+# legend 
+legend('topright',  inset=-0.01,-0.01,as.character(list_data$V2), col=list_data$color_val,pch=list_data$PCH,lty=list_data$LTY, yjust=0,xjust=0,cex = 1,pt.cex=2,y.intersp=0.8)
+
+# label x axis
+axis_x<-seq(round(min_x)+1,round(max_x),2)
+axis(1, at=axis_x,labels=FALSE)
+x_lab<-sapply(axis_x,function(x) 10**x)
+text(x=axis_x, y=par()$usr[3]-0.03*(par()$usr[4]-par()$usr[3]),labels=x_lab, srt=45, adj=1, xpd=TRUE,cex=0.8)
+
+
+# close graph
 dev.off()

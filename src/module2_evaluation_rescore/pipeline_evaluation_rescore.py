@@ -70,7 +70,7 @@ for file_ref in list_file:
 	f_eval=dir_work+"/"+file_ref+"."+suff_out+".eval"
 	f_rescore=dir_work+"/"+file_ref+"."+suff_out+".rescore"
 	f_graph=dir_work+"/"+file_ref+"."+suff_out+".eval.png"
-	list_arg="Rscript $AP_PLN_HOME/src/scripts_R/evaluation_rescale.R %s %s %s %s %s" % (f_eval,random_value,dir_data+"/"+file_ref,f_rescore,f_graph)
+	list_arg="Rscript $AP_PLN_HOME/src/scripts_R/evaluation_rescale.R %s %s %s %s %s /dev/null" % (f_eval,random_value,dir_data+"/"+file_ref,f_rescore,f_graph)
 	proc = subprocess.Popen(list_arg, stdout=subprocess.PIPE, shell=True)
 	(out, err) = proc.communicate()
 	[logger.debug(val) for val in out.split("\n")]

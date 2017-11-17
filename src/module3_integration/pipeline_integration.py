@@ -67,7 +67,7 @@ elif nb_dataset > 1:
 	logger.info("23) optimisation of free parameter by usion a linear regression")
 	f_best_d=dir_work+"/best_parameters_d"
 	f_graphe_d=dir_work+"/best_parameters_d.png"
-	list_arg="Rscript $AP_PLN_HOME/src/scripts_R/optimization_best_d_parameter.R %s %s %s %s %s" % (dir_work,nb_m,f_graphe_d,f_best_d,suff_out)
+	list_arg="Rscript $AP_PLN_HOME/src/scripts_R/optimization_best_d_parameter.R %s %s %s %s %s > /dev/null" % (dir_work,nb_m,f_graphe_d,f_best_d,suff_out)
 	proc = subprocess.Popen(list_arg, stdout=subprocess.PIPE, shell=True)
 	(out, err) = proc.communicate()
 	[logger.debug(val) for val in out.split("\n")]
