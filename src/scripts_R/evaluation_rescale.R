@@ -22,6 +22,10 @@ estimation_intercept<-function(x,y,ref_val) {
 # package
 suppressMessages(library('earth'))
 
+
+# remove warnings
+options(warn=-1)
+
 options(echo=TRUE)
 args <- commandArgs(trailingOnly = TRUE)
 print(args)

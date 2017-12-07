@@ -1,3 +1,9 @@
+
+
+# remove warnings
+options(warn=-1)
+
+
 options(echo=TRUE)
 args <- commandArgs(trailingOnly = TRUE)
 print(args)

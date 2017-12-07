@@ -1,3 +1,7 @@
+
+# remove warnings
+options(warn=-1)
+
 #
 # Package
 #

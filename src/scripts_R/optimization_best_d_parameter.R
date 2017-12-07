@@ -48,6 +48,8 @@ make_graphe  <- function(f_graphe,d,dir_data,nb_d,suffixe) {
 }
 
 
+# remove warnings
+options(warn=-1)
 
 # package
 options(echo=TRUE)

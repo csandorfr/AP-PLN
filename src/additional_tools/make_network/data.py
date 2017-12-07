@@ -17,11 +17,11 @@ def get_links(file,nb_links,nb_sample):
         return score
 
 def list_dataset(file):
-        list_data=[]
+        list_data=dict()
         f=open(file,'r')
         for line in f:
-                line=line.rstrip()
-                list_data.append(line)
+                line=line.rstrip().split("\t")
+                list_data[line[1]]=line[0]
         return list_data
 
 def get_value_links(file,n,score):

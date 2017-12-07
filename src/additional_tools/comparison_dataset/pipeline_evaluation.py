@@ -78,6 +78,6 @@ else:
 logger.info("4) Make plot")
 f_graph=dir_work+"/comparison_"+out+".pdf"
 
-print("Rscript $AP_PLN_HOME/src/scripts_R/comparison_dataset.R %s %s  %s %s > /dev/null" % (dir_work,f_list_cum,str(random_value),f_graph))
+os.system("Rscript $AP_PLN_HOME/src/scripts_R/comparison_dataset.R %s %s  %s %s > /dev/null" % (dir_work,f_list_cum,str(random_value),f_graph))
 
 
