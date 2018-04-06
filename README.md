@@ -12,8 +12,8 @@ Running Automatic pipeline to build phenotypic linkage network (AP-PLN) requires
 Using the buttons at the top of this page, download the ZIP file or the TAR ball, unzip/extract the download, and save the whole AP-PLN directory (folder) in your favorite directory.
 
 The AP-PLN directory contains:
-•	A directory src with the source code of three modules and directories of python and R scripts. 
-•	A user manual in pdf format.  
+* A directory src with the source code of three modules and directories of python and R scripts. 
+* A user manual in pdf format.  
 
 The user must refer to the manual, which includes the installation instructions and a tutorial.
 
